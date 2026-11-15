@@ -1,0 +1,781 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>하루한국어 | 한국어 교육 전문</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:Arial,"Noto Sans KR",sans-serif;
+  color:#202b3a;
+  line-height:1.6;
+}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:inherit}
+
+:root{
+  --red:#e72c38;
+  --navy:#172c49;
+  --blue:#e8f5ff;
+  --gray:#64748b;
+}
+
+.top-banner{
+  background:#fff0dc;
+  padding:12px 20px;
+  text-align:center;
+  font-size:14px;
+  color:#5b4a3b;
+}
+
+header{
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 8%;
+  background:white;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 2px 10px #00000008;
+}
+
+.logo{
+  font-size:23px;
+  font-weight:900;
+  color:var(--navy);
+}
+
+.logo span{color:var(--red)}
+
+nav{
+  display:flex;
+  gap:30px;
+  font-size:14px;
+  font-weight:bold;
+}
+
+nav a:hover{color:var(--red)}
+
+.btn{
+  background:var(--red);
+  color:white;
+  border:0;
+  border-radius:9px;
+  padding:13px 22px;
+  font-weight:bold;
+  transition:.2s;
+}
+
+.btn:hover{
+  background:#c91f2d;
+  transform:translateY(-2px);
+}
+
+.hero{
+  background:linear-gradient(120deg,#e2f3ff,#f1f9ff);
+  padding:75px 8%;
+}
+
+.hero-content{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:45px;
+  align-items:center;
+}
+
+.tag{
+  background:white;
+  color:#347ba9;
+  display:inline-block;
+  padding:8px 15px;
+  border-radius:30px;
+  font-size:13px;
+  font-weight:bold;
+}
+
+h1{
+  font-size:clamp(35px,4vw,52px);
+  line-height:1.3;
+  color:var(--navy);
+  margin:22px 0;
+  letter-spacing:-1.5px;
+}
+
+h1 span{color:var(--red)}
+
+.hero p{
+  font-size:16px;
+  color:#536477;
+  margin-bottom:22px;
+}
+
+.benefits{
+  list-style:none;
+  margin-bottom:28px;
+}
+
+.benefits li{
+  margin:12px 0;
+  font-size:14px;
+}
+
+.check{
+  color:var(--red);
+  font-weight:bold;
+  margin-right:10px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.btn-white{
+  background:white;
+  color:var(--navy);
+  border:1px solid #d5e6f2;
+  border-radius:9px;
+  padding:13px 20px;
+  font-weight:bold;
+}
+
+.hero-images{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.image-card{
+  height:175px;
+  border-radius:18px;
+  display:flex;
+  align-items:end;
+  padding:16px;
+  color:white;
+  font-weight:bold;
+  font-size:15px;
+  background-size:cover;
+  background-position:center;
+  box-shadow:0 10px 25px #345b791c;
+}
+
+.image-card:nth-child(1){
+  background-image:linear-gradient(0deg,#142c4d99,transparent),
+  url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600");
+}
+
+.image-card:nth-child(2){
+  background-image:linear-gradient(0deg,#142c4d99,transparent),
+  url("https://images.unsplash.com/photo-1529390079861-591de354faf5?w=600");
+}
+
+.image-card:nth-child(3){
+  background-image:linear-gradient(0deg,#142c4d99,transparent),
+  url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600");
+}
+
+.image-card:nth-child(4){
+  background-image:linear-gradient(0deg,#142c4d99,transparent),
+  url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600");
+}
+
+section{
+  padding:80px 8%;
+}
+
+.section-title{
+  text-align:center;
+  max-width:650px;
+  margin:0 auto 40px;
+}
+
+.section-title small{
+  color:var(--red);
+  font-weight:bold;
+  letter-spacing:2px;
+}
+
+.section-title h2{
+  font-size:34px;
+  color:var(--navy);
+  margin:10px 0;
+}
+
+.section-title p{
+  color:var(--gray);
+}
+
+.courses{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+  max-width:1200px;
+  margin:auto;
+}
+
+.course{
+  padding:28px;
+  border:1px solid #e7edf3;
+  border-radius:18px;
+  transition:.3s;
+}
+
+.course:hover{
+  transform:translateY(-7px);
+  box-shadow:0 15px 35px #00000012;
+}
+
+.course-icon{
+  font-size:35px;
+  margin-bottom:15px;
+}
+
+.course h3{
+  color:var(--navy);
+  margin-bottom:10px;
+  font-size:21px;
+}
+
+.course p{
+  color:var(--gray);
+  font-size:14px;
+  min-height:65px;
+}
+
+.course-info{
+  border-top:1px solid #eee;
+  padding-top:15px;
+  margin-top:18px;
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+}
+
+.course-info strong{color:var(--red)}
+
+.method{
+  background:#f5faff;
+}
+
+.method-content{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:55px;
+  align-items:center;
+}
+
+.method-box{
+  background:linear-gradient(135deg,#dcefff,#b9def8);
+  border-radius:25px;
+  padding:65px 30px;
+  text-align:center;
+}
+
+.method-book{
+  background:white;
+  display:inline-block;
+  padding:45px 30px;
+  border-radius:15px;
+  box-shadow:0 15px 30px #00000015;
+  transform:rotate(-5deg);
+}
+
+.method-book strong{
+  display:block;
+  font-size:25px;
+  color:var(--navy);
+}
+
+.steps{
+  margin-top:25px;
+}
+
+.step{
+  display:flex;
+  gap:15px;
+  margin:20px 0;
+}
+
+.step-number{
+  width:38px;
+  height:38px;
+  flex-shrink:0;
+  display:grid;
+  place-items:center;
+  background:white;
+  border-radius:12px;
+  color:var(--red);
+  font-weight:bold;
+}
+
+.step strong{
+  color:var(--navy);
+}
+
+.step p{
+  font-size:14px;
+  color:var(--gray);
+}
+
+.reviews{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.review{
+  padding:25px;
+  border:1px solid #e7edf3;
+  border-radius:18px;
+}
+
+.stars{
+  color:#f2ad40;
+  margin-bottom:12px;
+}
+
+.review p{
+  font-size:14px;
+  color:#536174;
+  margin-bottom:15px;
+}
+
+.review strong{
+  color:var(--navy);
+  font-size:13px;
+}
+
+.cta{
+  margin:20px auto 80px;
+  max-width:1100px;
+  background:linear-gradient(120deg,#1e3b5c,#285c83);
+  border-radius:25px;
+  padding:55px 25px;
+  text-align:center;
+  color:white;
+}
+
+.cta h2{
+  font-size:32px;
+  margin-bottom:12px;
+}
+
+.cta p{
+  color:#d7e7f5;
+  margin-bottom:25px;
+}
+
+.cta .btn{
+  background:white;
+  color:var(--red);
+}
+
+footer{
+  background:#f7f9fc;
+  padding:30px 8%;
+  text-align:center;
+  color:#8290a1;
+  font-size:13px;
+}
+
+/* Registration popup */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#0009;
+  z-index:200;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal-content{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  width:100%;
+  max-width:450px;
+  position:relative;
+}
+
+.modal-content h2{
+  color:var(--navy);
+  margin-bottom:8px;
+}
+
+.modal-content p{
+  color:var(--gray);
+  font-size:13px;
+  margin-bottom:20px;
+}
+
+.close{
+  position:absolute;
+  right:18px;
+  top:12px;
+  border:0;
+  background:#eee;
+  border-radius:50%;
+  width:32px;
+  height:32px;
+  font-size:20px;
+}
+
+.form-group{
+  margin-bottom:14px;
+}
+
+.form-group label{
+  display:block;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid #ddd;
+  border-radius:9px;
+  font-family:inherit;
+}
+
+.success{
+  color:#16845e;
+  font-size:13px;
+  margin-top:10px;
+}
+
+@media(max-width:800px){
+  header{padding:0 5%}
+  nav{display:none}
+  .hero-content,.method-content{
+    grid-template-columns:1fr;
+  }
+  .courses,.reviews{
+    grid-template-columns:1fr;
+  }
+  .hero{padding:50px 6%}
+  section{padding:60px 6%}
+}
+
+@media(max-width:480px){
+  h1{font-size:35px}
+  .image-card{height:130px;font-size:12px}
+  .section-title h2{font-size:27px}
+  .cta h2{font-size:25px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-banner">
+  📚 <strong>하루한국어</strong> — 오늘부터 시작하는 나만의 한국어 수업!
+</div>
+
+<header>
+  <a class="logo" href="#">하루<span>한국어</span></a>
+
+  <nav>
+    <a href="#courses">수업 안내</a>
+    <a href="#method">학습 방법</a>
+    <a href="#reviews">수강 후기</a>
+  </nav>
+
+  <button class="btn" onclick="openModal()">무료 상담 신청</button>
+</header>
+
+<!-- HERO -->
+
+<div class="hero">
+  <div class="hero-content">
+
+    <div>
+      <span class="tag">한국어 초급부터 고급까지</span>
+
+      <h1>
+        <span>한국어가 쉬워지는</span><br>
+        가장 즐거운 방법<br>
+        하루한국어와 함께
+      </h1>
+
+      <p>
+        문법만 외우는 수업은 이제 그만!
+        실생활에서 바로 사용할 수 있는 한국어 표현과
+        말하기 중심 수업으로 자신감을 키워보세요.
+      </p>
+
+      <ul class="benefits">
+        <li><span class="check">✓</span>레벨별 맞춤 커리큘럼</li>
+        <li><span class="check">✓</span>말하기·듣기·읽기·쓰기 통합 학습</li>
+        <li><span class="check">✓</span>전문 강사진의 꼼꼼한 피드백</li>
+      </ul>
+
+      <div class="hero-buttons">
+        <a href="#courses" class="btn">수업 알아보기</a>
+        <button class="btn-white" onclick="openModal()">무료 레벨 상담</button>
+      </div>
+    </div>
+
+    <div class="hero-images">
+      <div class="image-card">함께 배우는 한국어</div>
+      <div class="image-card">실전 회화 연습</div>
+      <div class="image-card">맞춤형 학습 플랜</div>
+      <div class="image-card">매일 조금씩 성장</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- COURSES -->
+
+<section id="courses">
+
+  <div class="section-title">
+    <small>OUR CLASSES</small>
+    <h2>나에게 딱 맞는 한국어 수업</h2>
+    <p>현재 실력과 목표에 맞는 과정을 선택하세요.</p>
+  </div>
+
+  <div class="courses">
+
+    <div class="course">
+      <div class="course-icon">🌱</div>
+      <h3>한국어 첫걸음</h3>
+      <p>한글부터 기본 문장까지 한국어가 처음인 학습자를 위한 과정입니다.</p>
+      <div class="course-info">
+        <span>입문 과정</span>
+        <strong>LEVEL 1–2</strong>
+      </div>
+    </div>
+
+    <div class="course">
+      <div class="course-icon">💬</div>
+      <h3>일상 회화 완성</h3>
+      <p>카페, 쇼핑, 여행, 친구와의 대화까지 자연스럽게 말하는 연습을 합니다.</p>
+      <div class="course-info">
+        <span>초·중급 과정</span>
+        <strong>LEVEL 3–4</strong>
+      </div>
+    </div>
+
+    <div class="course">
+      <div class="course-icon">🚀</div>
+      <h3>고급 표현 & TOPIK</h3>
+      <p>고급 어휘와 표현을 배우고 시험 및 학업 목표에 도전합니다.</p>
+      <div class="course-info">
+        <span>고급 과정</span>
+        <strong>LEVEL 5–6</strong>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- METHOD -->
+
+<section class="method" id="method">
+
+  <div class="method-content">
+
+    <div class="method-box">
+      <div class="method-book">
+        <small>HARU KOREAN</small>
+        <strong>하루 한 걸음<br>한국어 성장 노트</strong>
+        <p>Learn · Speak · Grow</p>
+      </div>
+    </div>
+
+    <div>
+      <small style="color:#e72c38;font-weight:bold">OUR METHOD</small>
+      <h2 style="font-size:32px;color:#172c49;margin:12px 0">
+        배우고, 말하고,<br>
+        내 것으로 만드는 3단계
+      </h2>
+
+      <p style="color:#64748b">
+        수업 시간에 배운 표현을 실제 상황에서
+        사용할 수 있도록 단계별로 연습합니다.
+      </p>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-number">01</div>
+          <div>
+            <strong>현재 레벨과 목표 확인</strong>
+            <p>나에게 필요한 학습 방향을 정합니다.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">02</div>
+          <div>
+            <strong>핵심 표현 반복 연습</strong>
+            <p>문법과 표현을 예문과 대화로 익힙니다.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">03</div>
+          <div>
+            <strong>피드백 받고 실전에서 사용</strong>
+            <p>복습과 피드백으로 배운 내용을 완성합니다.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- REVIEWS -->
+
+<section id="reviews">
+
+  <div class="section-title">
+    <small>STUDENT STORIES</small>
+    <h2>수강생들의 이야기</h2>
+    <p>하루한국어와 함께하는 즐거운 학습 경험</p>
+  </div>
+
+  <div class="reviews">
+
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>
+        "말하기가 항상 어려웠는데 매 수업 직접 문장을
+        만들어 말하다 보니 자신감이 생겼어요."
+      </p>
+      <strong>수강생 A · 회화 과정</strong>
+    </div>
+
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>
+        "제가 자주 틀리는 부분을 자세히 알려줘서
+        한국어 공부가 훨씬 쉬워졌어요."
+      </p>
+      <strong>수강생 B · 초급 과정</strong>
+    </div>
+
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>
+        "목표에 맞게 수업을 진행해 주셔서
+        공부 방향이 명확해졌습니다."
+      </p>
+      <strong>수강생 C · 고급 과정</strong>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+
+<div class="cta">
+  <h2>한국어 공부, 오늘 시작해 볼까요?</h2>
+  <p>나에게 맞는 한국어 수업을 무료로 상담받아 보세요.</p>
+  <button class="btn" onclick="openModal()">무료 상담 신청하기</button>
+</div>
+
+<footer>
+  <strong>하루한국어</strong>
+  <p>나답게 배우는 한국어 · HARU KOREAN</p>
+  <p>© 2026 HARU KOREAN. All Rights Reserved.</p>
+</footer>
+
+<!-- REGISTRATION FORM -->
+
+<div class="modal" id="consultModal">
+  <div class="modal-content">
+
+    <button class="close" onclick="closeModal()">×</button>
+
+    <h2>무료 레벨 상담 신청</h2>
+    <p>정보를 입력하고 상담을 신청해 주세요.</p>
+
+    <form id="consultForm">
+
+      <div class="form-group">
+        <label>이름</label>
+        <input type="text" id="name" placeholder="이름을 입력하세요" required>
+      </div>
+
+      <div class="form-group">
+        <label>이메일</label>
+        <input type="email" id="email" placeholder="이메일을 입력하세요" required>
+      </div>
+
+      <div class="form-group">
+        <label>현재 한국어 레벨</label>
+        <select id="level">
+          <option>한국어 처음이에요</option>
+          <option>초급</option>
+          <option>중급</option>
+          <option>고급</option>
+          <option>잘 모르겠어요</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>학습 목표</label>
+        <textarea id="goal" rows="3" placeholder="일상 회화, 유학, TOPIK 등"></textarea>
+      </div>
+
+      <button type="submit" class="btn" style="width:100%">
+        상담 신청하기
+      </button>
+
+      <div class="success" id="message"></div>
+
+    </form>
+  </div>
+</div>
+
+<script>
+function openModal(){
+  document.getElementById("consultModal").style.display="flex";
+}
+
+function closeModal(){
+  document.getElementById("consultModal").style.display="none";
+}
+
+document.getElementById("consultModal").addEventListener("click",function(e){
+  if(e.target===this) closeModal();
+});
+
+document.getElementById("consultForm").addEventListener("submit",function(e){
+  e.preventDefault();
+
+  const name=document.getElementById("name").value;
+
+  document.getElementById("message").innerText=
+    name+"님, 입력이 완료되었습니다! (현재 데모 페이지이며 실제 전송은 되지 않습니다.)";
+
+  this.reset();
+});
+</script>
+
+</body>
+</html>
