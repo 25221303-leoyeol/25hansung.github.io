@@ -645,6 +645,10 @@ document.getElementById('korean-apply-form').addEventListener('submit', function
     this.querySelector('.submit-cta').textContent = '신청이 접수되었습니다';
 });
 </script>
-
+<script>
+	window.Wingify = window.Wingify || [];
+	Wingify.event = Wingify.event || function () {Wingify.push(['event'].concat([].slice.call(arguments)))};
+	Wingify.event('20s_stay')
+</script>
 </body>
 </html>
